@@ -45,18 +45,21 @@ def similar(a, b):
 
 
 def function_perf(func, similar_qry_ratio=0.9, max_print=10):
-    """"
-        WARNING:
-            You MUST have to set DEBUG=True on settings to use this, so run
-            this code on specifc container in disposable. DON'T set DEBUG=True
-            in production.
+    """
+    This function gives a basic performance execution analysis
+    measuring the time spent in whole function and computing the
+    time spent doing queries on database. The queries will be displayed
+    in order of spent time.
+    You can use as decorator or simply wrapper.
+    Args:
+        func: function which will be analyzed
+        similar_qry_ratio: the ratio to consider a given query similiar to other.
+            This is used because in function execution we can have some query
+            executed many times with different arguments.
+        max_print: the max number of queries which will be printed on screen
 
-        USE CASE:
-            Use this to view a rank of query spent time
-
-        USAGE EXAMPLE:
-            query_perf(process_report)(target_type='deliveries', file_format='xlsx', extra=kwargs)
-
+    Returns:
+        A simply report of queries executed in function.
     """
     @wraps(func)
     def func_wrapper(*args, **kwargs):
@@ -105,4 +108,3 @@ def function_perf(func, similar_qry_ratio=0.9, max_print=10):
         return ret_val
 
     return func_wrapper
-
