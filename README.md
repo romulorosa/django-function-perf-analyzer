@@ -3,6 +3,7 @@
 This is a simple script with a function which can be used as a decorator or wrapper and print a simple report of function execution. This function will measure the execution time of a given function and compute the time spent by the queries executed on database. Functions like that can be usefull in situations when you need tunning or find some bottlenecks. This will give you a directive about which is the slowest part of your function.
 
 ## How to use
+**IMPORTANT**: You should turn on the django debug mode (settings.DEBUG = True)
 
 As a function decorator:
 ```
