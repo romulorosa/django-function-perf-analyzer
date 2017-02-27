@@ -46,6 +46,8 @@ def similar(a, b):
 
 def function_perf(func, similar_qry_ratio=0.9, max_print=10):
     """
+    WARNING: You should set your settings.DEBUG = True
+
     This function gives a basic performance execution analysis
     measuring the time spent in whole function and computing the
     time spent doing queries on database. The queries will be displayed
